@@ -1,0 +1,114 @@
+{% extends "WallrMainBundle::layout.html.twig" %}
+
+{% block css %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" media="screen" type="text/css" title="Design" href="/stylesheets/css/home.css" /> 
+
+{% endblock %}
+
+{% block title %}WALLR{% endblock %}
+    
+{% block requirejs %}
+    
+    {{ parent() }}
+    
+    <script>
+        require(['./js/common'], function(common) 
+        {
+            require(['home/main-home']);
+        });
+    </script>
+    
+{% endblock %}           
+
+
+{% block content %}
+      
+    <section id="logoSignin" >
+
+        <div id="logo">
+            <h1>WALLR<span class="co">.CO</span> <span class="beta">beta</span></h1>
+            <h2>Rss reader for pictures lovers</h2>
+        </div>
+
+        <div id="signin">
+            <p>Sign-in with</p>
+
+            <div id="twFb">
+                <a href="{{ path ('connect_twitter')}}" class="twitter"></a>
+                <a href="#" class="fb"></a>
+            </div>
+        </div>
+
+    </section>
+
+    
+    <div id="black"></div>
+
+    <section id="wall">
+
+            <a href="" class="image" ><img src="http://31.media.tumblr.com/858c9b3415e289ae194ccce866aa7746/tumblr_msblnppaNY1rlebigo1_1280.png"  /></a>
+            <a href="" class="image" ><img src="http://31.media.tumblr.com/f08c8ad65da8d9c4c0782944a378a3af/tumblr_mqy5y2dpcn1qbd0sio1_500.jpg"  /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/0e1fffd6f2a6fb581cf27baa21f690bf/tumblr_mrocnrZ77z1rx0498o1_1280.jpg"  /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/fb674d0920bc6906cde2cc4465268585/tumblr_mqm9pugoRe1qdjk32o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/58e0b7e1dd44f8f5b09aac90f485667b/tumblr_mqiclgwAmB1rx0498o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/09f5b8dbd96dbd98e8116f4a3d3ddc66/tumblr_miuk11KswS1qfnx95o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/d9723386c5e730e17d23e2256ba6b348/tumblr_mn1ycaXkDq1qzi9p6o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/7d34435cdf5138ff9c426975b03050f3/tumblr_mqearpAzbG1rx0498o1_500.jpg" /></a>
+            <a href="" class="image" ><img src="http://25.media.tumblr.com/a98d68405a714494d37e368a388a4483/tumblr_mo37fxqAQa1rtk6nmo1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://31.media.tumblr.com/tumblr_lxe8umd3UQ1qd81x0o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://24.media.tumblr.com/04a974c87d6ce147827fddb3d5fe13d7/tumblr_mpnyvw8zeK1rx0498o1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://31.media.tumblr.com/49fa5380f1d9525c6d56ae55243fb2c3/tumblr_mpkjmxgeNG1ry9teho1_1280.jpg" /></a>
+            <a href="" class="image" ><img src="http://24.media.tumblr.com/d834cb4f65103a5890bdad7955a832db/tumblr_mpm0hkZCbh1rx0498o1_1280.jpg" /></a>
+
+    </section>
+
+{% endblock %}
+    
+{% block javascripts %}
+    
+    
+    <div id="fb-root"></div>
+    
+    <script>
+        
+    {% if app.request.host == "local.wallr.com" %}
+        {% set fbAppId = "577093335686119" %}
+    {% else %}
+        {% set fbAppId = "163545300515277" %}
+    {% endif %}
+        
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId: '{{ fbAppId }}', // App ID from the App Dashboard
+            oauth: true,
+            logging:true,
+            status: false, // check the login status upon init?
+            cookie: true, // set sessions cookies to allow your server to access the session?
+            xfbml: true  // parse XFBML tags on this page?
+        });
+    //    fbLogin();
+    };
+
+    // Load the SDK's source Asynchronously
+    (function(d, debug) {
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document, false));
+    </script>
+    
+    {#
+    <script src="js/facebook/facebookConnect.js" type="text/javascript"></script>
+#}
+    
+{% endblock %}

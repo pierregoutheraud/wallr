@@ -1,0 +1,41 @@
+
+#API_addNewFeed:
+#    pattern:  /feed/add
+#    defaults: { _controller: WallrAPIBundle:Feed:addNewFeed }
+
+API_getFeedsList:
+    pattern:  /feeds/list
+    defaults: { _controller: WallrAPIBundle:Feed:getFeedsList }
+    
+#API_getFeeds:
+#    pattern:  /feeds/all
+#    defaults: { _controller: WallrAPIBundle:Feed:getFeeds, page:1 }
+    
+# get unread images from all feeds
+#API_getFeed0:
+#    pattern:  /feed/0/{page}
+#    defaults: { _controller: WallrAPIBundle:Feed:getFeeds, page:1 }
+    
+API_restFeed:
+    pattern:  /feed/{id}
+    defaults: { _controller: WallrAPIBundle:Feed:restFeed, id:0 }
+    requirements:
+        id: "\d{0,}"
+    
+API_restFeedImages:
+    pattern:  /feed/images/{id}
+    defaults: { _controller: WallrAPIBundle:Images:restFeedImages, id:0 }
+    requirements:
+        id: "\d{0,}"
+    
+#API_refreshFeed:
+#    pattern:  /feed/refresh/{id}
+#    defaults: { _controller: WallrAPIBundle:Feed:refresh, id:0 }
+#    requirements:
+#        id: "\d{0,}"
+    
+# --------------------------------------------------------------------------
+    
+API_readImage:
+    pattern:  /image/read/{idImage}
+    defaults: { _controller: WallrAPIBundle:Image:readImage }

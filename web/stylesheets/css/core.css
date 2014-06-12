@@ -1,0 +1,31 @@
+/* -------------- HTML - BODY -------------- */
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; }
+  html body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "proxima-nova",sans-serif;
+    overflow: hidden; }
+  html * {
+    padding: 0;
+    margin: 0; }
+  html *:focus {
+    outline: 0; }
+  html a img {
+    border: none; }
+  html ul {
+    list-style-type: none; }
+  html input {
+    font-family: "proxima-nova",sans-serif; }
+  html #content {
+    height: 100%;
+    width: 100%;
+    /*overflow:scroll;*/
+    /*padding-right:20px;*/ }
+  html .spacer {
+    clear: both; }

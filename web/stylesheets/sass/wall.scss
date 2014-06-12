@@ -1,0 +1,461 @@
+$greenSea: #ce4dd6;
+
+html {
+    
+    #content {
+
+        #loadingFeeds
+        {
+            position:fixed;
+            top:0;
+            left:20%;
+            right:0;
+            bottom:0;
+            z-index:100;
+
+            background-color:white;
+            /*background-color:#16a085;*/
+            /*background-color:#0f0f0f;*/
+            text-align:center;
+
+            /*display:none;*/
+
+            /* Pour centrer le texte */
+            &:after
+            {
+                display: inline-block;
+                height: 100%;
+                width: 0;
+                vertical-align: middle;
+                content: '';
+                position: relative;
+            }
+
+            div
+            {
+                color:#d9d9d9;
+                /*color: #16a085;*/
+                /*color:white;*/
+                /*color:#1c1c1c;*/
+
+                font-size:30px;
+                font-weight:700;
+
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;
+
+                /*
+                    &:before
+                    {
+                    content: attr(text);
+
+                    position: absolute;
+                    overflow: hidden;
+                    width: 100px;
+                    color: #16a085;
+                    text-align: left;
+                    white-space: nowrap;
+                    box-sizing: border-box
+                }*/
+            }
+        }
+
+
+        #leftMenu {
+            width: 20%;
+            overflow: hidden;
+            height: 100%;
+            background-color: #1c1c1c;
+            position: relative;
+            float: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            #logo {
+                background-color: #16a085;
+                text-align: center;
+                font-weight: 900;
+                color: white;
+                padding: 20px 0 20px 0;
+                /*font-size: 1.2vw;*/
+                font-size: 20px;
+            }
+            #wrapListURLS {
+                position: absolute;
+                top: 63px;
+                left: 0;
+                right: 0;
+                bottom: 81px;
+                overflow: hidden;
+            }
+            #listURLS {
+                overflow-y: scroll;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                right: -17px;
+            }
+            ul {
+                /*padding-right: 20px;*/
+                li {
+
+                    &.addURL {
+                        box-shadow: inset 0 -2px 0 #1f1f1f;
+                        height: 70px;
+                        line-height: 70px;
+                        cursor: pointer;
+                        .infos {
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: 100%;
+                        }
+                        .icon {
+                            height: 15px;
+                            width: 10%;
+                            background-image: url('../../images/icons/iconAddURL.png');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            margin: 0 0 0 20px;
+                            float: left;
+                        }
+                        input {
+                            float: left;
+                            margin-left: 15px;
+                            background: none;
+                            border: none;
+                            font-weight: 600;
+                            font-size: 15px;
+                            color: white;
+                            overflow: hidden;
+                            width: 70%;
+                        }
+                    }
+
+                }
+
+                #feeds
+                {
+
+                    // Edit
+                    &.edit li.feed:not(.allfeeds) .infos
+                    {
+                        .wrapCountUnreadPhotos 
+                        {
+                            right: 32px;
+                        }
+
+                        .removeFeed
+                        {
+                            display:block;
+                        }
+                    }
+
+                    li.feed 
+                    {
+                        box-shadow: inset 0 -2px 0 #1f1f1f;
+                        height: 70px;
+                        line-height: 70px;
+                        cursor: pointer;
+                        padding: 0 20px 0 20px;
+
+                        -webkit-transition: all 0.5s ease;
+                        -moz-transition: all 0.5s ease;
+                        -o-transition: all 0.5s ease;
+                        -ms-transition: all 0.5s ease;
+                        transition: all 0.5s ease;
+
+                        opacity:1;
+
+                        &.hidden
+                        {
+                            opacity:0;
+                        }
+
+                        &:first-child {
+                            /*box-shadow: inset 0 -2px 0 #1f1f1f;*/
+                        }
+
+                        /* NO PROFIL PIC */
+                        &.noPP
+                        {
+                            .pp
+                            {
+                                display:none;
+                            }
+
+                            .name
+                            {
+                                width:100%;
+
+                                span {
+                                    margin: 0 0 0 0;
+                                }
+                            }
+
+                        }
+
+                        /*
+                        &.hover,
+                        &:hover
+                        {
+
+                            .pp 
+                            {
+                                //background-image: url('../images/icons/iconDeleteFeed.png');
+                                //background:none;
+                                background-color:#c0392b;
+
+                                &:hover
+                                {
+                                    background-color:#c0392b;
+                                }
+                            }
+                        }
+                        */
+
+                        /* REFRESHING */
+                        &.isRefreshing
+                        {
+                            opacity:0.2;
+                            cursor:not-allowed;
+                        }
+
+                        &:not(.isRefreshing):hover, &.selected {
+                            background-color: #242424;
+                            box-shadow: none;
+                        }
+
+                        .infos 
+                        {
+
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: 100%;
+                            position: relative;
+
+                            .pp {
+                                width: 10%;
+                                height: 30px;
+                                overflow: hidden;
+                                -webkit-border-radius: 5px;
+                                -moz-border-radius: 5px;
+                                border-radius: 5px;
+                                /*background-image: url('http://25.media.tumblr.com/7493d4f7ade4fc85dc01a1f63ced12db/tumblr_mmwixftrva1rzk7gpo1_1280.jpg');*/
+                                background-size:cover;
+                                /*margin: 0 0 0 20px;*/
+                                float: left;
+                                /*display:none;*/
+                            }
+
+                            .name {
+                                width: 90%;
+                                height: 30px;
+                                line-height: 30px;
+                                font-weight: 600;
+                                font-size: 15px;
+                                color: white;
+                                float: left;
+                                overflow: hidden;
+                                span {
+                                    margin: 0 0 0 15px;
+                                }
+                            }
+                            .wrapCountUnreadPhotos {
+                                height: 30px;
+                                line-height: 30px;
+                                /*margin: 0 20px 0 0;*/
+                                /*float: right;*/
+                                position: absolute;
+                                right: 0px;
+                                z-index:5;
+                            }
+                            .countUnreadPhotos {
+                                display: block;
+                                display: inline-block;
+                                vertical-align: middle;
+                                line-height: normal;
+                                background-color: #333333;
+                                color: #999999;
+                                font-size: 13px;
+                                padding: 3px 6px 3px 6px;
+                                -webkit-border-radius: 2px;
+                                -moz-border-radius: 2px;
+                                border-radius: 2px;
+                                text-decoration: none;
+                                &:hover {
+                                    text-decoration: line-through;
+                                }
+                            }
+
+                            .removeFeed
+                            {
+                                height: 22px;
+                                width:22px;
+                                line-height: 30px;
+
+                                position: absolute;
+                                right: 0px;
+                                top:5px;
+                                z-index:5;
+
+                                background-color:#c0392b;
+                                background-image:url('../../images/icons/icon-whiteCross.png');
+                                background-repeat:no-repeat;
+                                background-position:6px 6px;
+
+                                -webkit-border-radius: 2px;
+                                -moz-border-radius: 2px;
+                                border-radius: 2px;
+
+                                display:none;
+
+                            }
+                        }
+
+                    }
+
+                }
+            }
+
+            #leftMenuBottom
+            {
+
+                background-color: #1c1c1c;
+                position: absolute;
+                bottom: 0px;
+                right: 0;
+                left: 0;
+
+                text-align: center;
+
+                #edit
+                {
+
+                    display:inline-block;
+
+                    font-weight: 600;
+                    font-size: 18px;
+                    margin:0 0 20px 0;
+
+                    a {
+                        color: #404040;
+                        text-decoration: none;
+
+                        padding-left:32px;
+                        background-image:url('../../images/icons/icon-editFeeds.png');
+                        background-position:left center;
+                        background-repeat:no-repeat;
+
+                        &:hover {
+                            color:white;
+                            text-decoration:underline;
+                            background-image:url('../../images/icons/icon-editFeeds-active.png');
+                        }
+                    }
+                }
+
+                #logout {
+
+                    text-align: center;
+                    color: #404040;
+                    font-weight: 600;
+                    font-size: 18px;
+
+                    margin:0 0 30px 0;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration:underline;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        #right
+        {
+
+            /* HIDE SCROLL */
+            position: absolute;
+            left: 20%;
+            top: 0;
+            right: -30px;
+            bottom: 0;
+            padding-right: 15px;
+            overflow-y: scroll;
+
+            #wall 
+            {
+                padding: 20px 20px 0 20px;
+
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                -ms-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+
+                opacity:1;
+
+                &.visible {
+                    opacity:1;
+                }
+
+                &.hidden {
+                    opacity:0;
+                }
+
+                .image
+                {
+                    display: block;
+                    margin-bottom: 20px;
+                    opacity:1;
+                    /*width:200px;*/
+
+                    &.hidden {
+                        opacity:0;
+                    }
+
+                    &.read
+                    {
+                        /*opacity:0.4;*/
+                    }
+
+                    img 
+                    {
+                        width:100%;
+                        height:100%;
+                        display: block;
+
+                        -webkit-border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        border-radius: 4px;
+                    }
+                }
+
+            }
+
+        }
+
+    }
+    
+    // FIX SCROLL BAR
+    &.mac {
+        #content {
+            
+            #leftMenu #listURLS {
+                right:0;
+            }
+            
+            #right {
+                right:-15px;
+            }
+        }
+    }
+    
+}

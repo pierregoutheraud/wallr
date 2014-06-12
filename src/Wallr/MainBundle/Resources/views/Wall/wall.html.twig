@@ -1,0 +1,124 @@
+{% extends "WallrMainBundle::layout.html.twig" %}
+
+{% block css %}
+
+    {{ parent() }}
+
+    <link rel="stylesheet" media="screen" type="text/css" title="Design" href="/stylesheets/css/wall.css" /> 
+    <link rel="stylesheet" media="screen" type="text/css" title="Design" href="/stylesheets/css/libs/nprogress/nprogress.css" /> 
+
+{% endblock %}
+
+{% block title %}WALLR / HOME{% endblock %}
+    
+{% block requirejs %}
+    
+    {{ parent() }}
+    
+    <script>
+        require(['./js/common'], function(common) 
+        {
+            require(['app/main-app']);
+        });
+    </script>
+    
+{% endblock %}    
+
+{% block content %}
+    
+    <div id="loadingFeeds">
+        <div text="Updating your feeds..." >Updating your feeds<span>...</span></div>
+    </div>
+
+    <section id="leftMenu">
+
+    <div id="logo">WALLR</div>
+
+    <div id="wrapListURLS">
+        <div id="listURLS">
+
+        <ul>
+
+            <li class="addURL">
+                <div class="infos">
+                    <div class="icon"></div>
+                    <input type="text" placeholder="Add new rss feed, wesbite, tumblr..." />
+                </div>
+            </li>
+
+            <div id="feeds" class="">
+
+            {#
+            <li class="feed all noPP">
+                <div class="infos">
+                    <div class="pp"></div>
+                    <div class="name" ><span>All feeds</span></div>
+                    <div class="wrapCountUnreadPhotos">
+                        <a href="#" class="countUnreadPhotos">99</a>
+                    </div>
+                </div>
+            </li>     
+            #}
+
+            </div>
+
+        </ul>
+        </div>
+    </div>
+    
+    <div id="leftMenuBottom">
+    
+        <div id="edit">
+            <a href="/#" >edit</a>
+        </div>
+
+        <div id="logout">
+            <span>{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}{{ app.user.username }}{% endif %}</span>
+            <a href="/logout">Logout</a>
+        </div>
+        
+    </div>
+
+</section>
+
+
+<section id="right">
+    
+    <section id="wall"></section>
+    
+    {#<div class="images"></div>#}
+    
+    {#
+    <div class="images">
+        <a href="" class="image" >
+            <img src="http://31.media.tumblr.com/858c9b3415e289ae194ccce866aa7746/tumblr_msblnppaNY1rlebigo1_1280.png"  />
+        </a>
+    </div>
+    #}
+
+</section>
+
+{% endblock %}
+        
+{% block javascripts %}
+
+    <script type="text/javascript">
+    
+        /* DETECT MAC OS */
+        if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";    
+
+        var isOpera = !!window.opera || navigator.userAgent.indexOf('Opera') >= 0;
+        // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+        var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+        // At least Safari 3+: "[object HTMLElementConstructor]"
+        var isChrome = !!window.chrome;                          // Chrome 1+
+        var isIE = /*@cc_on!@*/false;                            // At least IE6
+
+        if( OSName == "MacOS" ) {
+            document.querySelector("html").className = 'mac';
+        }
+        
+    </script>
+
+{% endblock %}

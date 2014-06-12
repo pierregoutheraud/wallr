@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" >
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        {% block css %}
+            <link rel="stylesheet" media="screen" type="text/css" title="Design" href="/stylesheets/css/core.css" /> 
+        {% endblock %}
+        
+	<link rel="icon" type="image/png" href="/images/favicon/favicon_wallr.png" /> 
+        
+        <!-- Pour que l’utilisateur ne puisse pas réduire ou agrandir la carte -->
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        
+        <meta name="description" content="Wallr, RSS Reader for pictures lovers." />
+        
+        {% block head %}{% endblock %}
+        
+        <title>{% block title %}WALLR{% endblock %}</title>
+
+        {# TYPEKIT #}
+        <script type="text/javascript" src="//use.typekit.net/pel8cqq.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        
+        <!-- FIX IE HTML5 -->
+        <script type="text/javascript" >
+        "'article aside footer header nav section time'".replace(/\w+/g,function(n){document.createElement(n)})
+        </script>
+        
+        {% block requirejs %}
+            <script src="/js/libs/require/require.js"></script>
+        {% endblock %}
+
+    </head>
+
+    <body>
+                
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+        
+        {#
+        <script src="js/libs/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script src="js/libs/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+        <script src="js/libs/masonry/masonry.pkgd.min.js" type="text/javascript"></script>
+        #}
+        
+        {% block javascripts %}{% endblock %}
+        
+    </body>
+</html>

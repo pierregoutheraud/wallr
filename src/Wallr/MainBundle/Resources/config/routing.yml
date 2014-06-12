@@ -1,0 +1,12 @@
+home:
+    pattern:  /
+    defaults: { _controller: WallrMainBundle:Home:index }
+    
+wall:
+    pattern:  /wall
+    defaults: { _controller: WallrMainBundle:Wall:index }
+    
+feed:
+    pattern:  /wall/feed/{id}
+    defaults: { _controller: WallrMainBundle:Wall:feed }
+

@@ -1,0 +1,7 @@
+parameters:
+#    wallr_user.example.class: Wallr\UserBundle\Example
+
+services:
+#    wallr_user.example:
+#        class: %wallr_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
